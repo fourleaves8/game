@@ -5,14 +5,14 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		crr[] crrs = new crr[n];
+		Crr[] crrs = new Crr[n];
 		for (int i = 0; i < crrs.length; i++) {
 			int crrNum = i + 1;
 			String crrName = sc.next();
 			int crrBirthYear = Integer.parseInt(sc.next().replace("년", ""));
 			String crrClass = sc.next();
 		
-			crrs[i] = new crr();
+			crrs[i] = new Crr();
 
 			if (crrClass.equals("의적")) {
 				crrs[i] = new 의적();
@@ -48,7 +48,7 @@ public class Main {
 	}
 }
 
-class crr {
+class Crr {
 	int crrNum;
 	String crrName;
 	int crrBirthYear;
@@ -57,7 +57,7 @@ class crr {
 	int stR;
 	int inT;
 	int deX;
-	wpn aWpn;
+	Wpn aWpn;
 
 	void intro() {
 		System.out.println("== 자기소개 시작 ==");
@@ -80,27 +80,27 @@ class crr {
 	}
 }
 
-class 의적 extends crr {
+class 의적 extends Crr {
 	의적() {
 		crrClass = "의적";
 		aWpn = new 검();
 	}
 }
 
-class 도적 extends crr {
+class 도적 extends Crr {
 	도적() {
 		crrClass = "도적";
 		aWpn = new 도끼();
 	}
 }
 
-class 상인 extends crr {
+class 상인 extends Crr {
 	상인() {
 		crrClass = "상인";
 		aWpn = new 지팡이();
 	}
 }
-class wpn{
+class Wpn{
 	String wpnName;
 	int wpnAtt;
 	
@@ -110,19 +110,19 @@ class wpn{
 		System.out.printf("- 데미지 : %d%n", wpnAtt*stR*deX);
 	}
 }
-class 검 extends wpn {
+class 검 extends Wpn {
 	검(){
 		wpnName = "검";
 		wpnAtt = 10;
 	}
 }
-class 도끼 extends wpn {
+class 도끼 extends Wpn {
 	도끼(){
 		wpnName = "도끼";
 		wpnAtt = 15;
 	}
 }
-class 지팡이 extends wpn {
+class 지팡이 extends Wpn {
 	지팡이(){
 		wpnName = "지팡이";
 		wpnAtt = 2;
